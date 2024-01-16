@@ -20,14 +20,19 @@ def main():
         time.sleep(1)
 
         center_x, center_y = (1920 // 2, 1080 // 2)
-        rec_x, rec_y = (center_x, center_y + 400)
+        results__x, results__y = (center_x, center_y + 100)
 
-        check_bid_price = pyautogui.screenshot(region=(rec_x - 430, rec_y - 200, 200, 300))
-        check_bid_price.save("assets/check_bid_price.png")
+        check_search = pyautogui.screenshot(region=(results__x - 80, results__y - 10, 250, 100))
+        check_search.save("assets/check_search.png")
 
-        ocr_result2 = pytesseract.image_to_string("assets/check_bid_price.png", config = "--psm 6")
+        ocr_result1 = pytesseract.image_to_string("assets/check_search.png", config = "--psm 6")
 
-        print(ocr_result2)
+        if not "No results" in ocr_result1:
+            print("player found")
+        else:
+            print("player not found")
+
+        time.sleep(1)
 
         browser.minimize()
 

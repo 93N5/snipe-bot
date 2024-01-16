@@ -5,10 +5,11 @@ import pygetwindow as gw
 import pytesseract
 from dotenv import load_dotenv
 import os
+from datetime import datetime
 
 load_dotenv()
 
-pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+# pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 
 def get_random_time():
     return random.randint(1, 3)
@@ -39,7 +40,6 @@ def main():
         counter = 0
 
         while True:
-            print("counter:", counter)
             if counter == set_program_loop:
                 break
 
@@ -127,11 +127,8 @@ def main():
 
             snipe_counter = 1
 
-            time.sleep(1)
-
             # snipe loop function
             while True:
-                print("snipe counter:", snipe_counter)
                 if snipe_counter == set_trading_loop:
                     break
 
@@ -153,6 +150,10 @@ def main():
                     get_item_button_x = 970
                     get_item_button_y = 580
                     pyautogui.click(get_item_button_x, get_item_button_y)
+
+                    now = datetime.now()
+
+                    print(f"player found at: {now}; and tried to buy the player:", player_name)
                 
                 time.sleep(get_random_time())
 
@@ -169,10 +170,8 @@ def main():
                 ocr_result2 = pytesseract.image_to_string("assets/check_bid_price.png", config = "--psm 6")
 
                 if "150" in ocr_result2:
-                    print("150 is in ocr res2")
                     pyautogui.click(minus_button_x, minus_button_y)
                 else:
-                    print("150 is not in ocr res2") 
                     pyautogui.click(plus_button_x, plus_button_y)
 
                 time.sleep(1)
@@ -197,5 +196,4 @@ def main():
 
 if __name__ == '__main__':
     main()
-
 
