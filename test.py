@@ -19,22 +19,13 @@ def main():
 
         time.sleep(1)
 
-        center_x, center_y = (1920 // 2, 1080 // 2)
-        results__x, results__y = (center_x, center_y + 100)
-
-        check_search = pyautogui.screenshot(region=(results__x - 80, results__y - 10, 250, 100))
-        check_search.save("assets/check_search.png")
-
-        ocr_result1 = pytesseract.image_to_string("assets/check_search.png", config = "--psm 6")
-
-        if not "No results" in ocr_result1:
-            print("player found")
-        else:
-            print("player not found")
+        get_item_button_x = 970
+        get_item_button_y = 600
+        pyautogui.moveTo(get_item_button_x, get_item_button_y)
 
         time.sleep(1)
 
-        browser.minimize()
+        # browser.minimize()
 
 if __name__ == "__main__":
     main()

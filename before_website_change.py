@@ -52,8 +52,8 @@ def main():
 
             time.sleep(get_random_time())
 
-            type_player_button_x = 950
-            type_player_button_y = 420
+            type_player_button_x = 970
+            type_player_button_y = 350
 
             pyautogui.click(type_player_button_x, type_player_button_y)
             pyautogui.typewrite(player_name)
@@ -61,7 +61,7 @@ def main():
             time.sleep(get_random_time())
 
             player_search_button_x = 970
-            player_search_button_y = 480
+            player_search_button_y = 430
 
             pyautogui.click(player_search_button_x, player_search_button_y)
 
@@ -76,37 +76,37 @@ def main():
                 time.sleep(get_random_time())
 
                 select_gold_button_x = 880
-                select_gold_button_y = 600
+                select_gold_button_y = 580
 
                 pyautogui.click(select_gold_button_x, select_gold_button_y)
 
                 time.sleep(get_random_time())
 
                 rarity_button_x = 1080
-                rarity_button_y = 450
+                rarity_button_y = 410
 
                 pyautogui.click(rarity_button_x, rarity_button_y)
 
                 time.sleep(get_random_time())
 
                 select_rare_rarity_button_x = 1080
-                select_rare_rarity_button_y = 550
+                select_rare_rarity_button_y = 540
 
                 pyautogui.click(select_rare_rarity_button_x, select_rare_rarity_button_y)
 
             time.sleep(get_random_time())
 
             minus_button_x = 500
-            minus_button_y = 770
+            minus_button_y = 750
 
             plus_button_x = 950
-            plus_button_y = 770
+            plus_button_y = 750
 
             go_back_button_x = 140
             go_back_button_y = 180
 
             min_bid_price_button_x = 580
-            min_bid_price_button_y = 770
+            min_bid_price_button_y = 750
 
             pyautogui.click(min_bid_price_button_x, min_bid_price_button_y)
             pyautogui.typewrite("150")
@@ -114,7 +114,7 @@ def main():
             time.sleep(get_random_time())
 
             max_buy_now_price_button_x = 1140
-            max_buy_now_price_button_y = 880
+            max_buy_now_price_button_y = 840
 
             pyautogui.click(max_buy_now_price_button_x, max_buy_now_price_button_y)
             pyautogui.typewrite(max_buy_now_price)
@@ -144,11 +144,11 @@ def main():
 
                 if not "No results" in ocr_result1:
                     buy_item_button_x = 1400
-                    buy_item_button_y = 750
+                    buy_item_button_y = 700
                     pyautogui.click(buy_item_button_x, buy_item_button_y)
 
                     get_item_button_x = 970
-                    get_item_button_y = 600
+                    get_item_button_y = 580
                     pyautogui.click(get_item_button_x, get_item_button_y)
 
                     now = datetime.now()
