@@ -154,6 +154,18 @@ def main():
                     now = datetime.now()
 
                     print(f"player found at: {now}; and tried to buy the player:", player_name)
+                    
+                    if not os.path.exists(f"assets/{player_name}"):
+                        os.makedirs(f"assets/{player_name}")
+
+                    time.sleep(get_random_time())
+
+                    check_player = pyautogui.screenshot()
+
+                    now_string = now.strftime("%d_%m_%Y_%H_%M_%S")
+
+                    player_image = f"{player_name}/{now_string}.png"
+                    check_player.save(f"assets/{player_image}")
                 
                 time.sleep(get_random_time())
 
