@@ -19,9 +19,9 @@ def main():
 
         time.sleep(1)
 
-        get_item_button_x = 970
-        get_item_button_y = 600
-        pyautogui.moveTo(get_item_button_x, get_item_button_y)
+        button_x = 970
+        button_y = 620
+        pyautogui.moveTo(button_x, button_y)
 
         time.sleep(1)
 

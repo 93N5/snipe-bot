@@ -20,6 +20,7 @@ def main():
 
     player_name = os.getenv("PLAYER_NAME")
     gold_rare= os.getenv("GOLD_RARE")
+    fantasy_hero = os.getenv("FANTASY_HERO")
     set_program_loop = int(os.getenv("SET_PROGRAM_LOOP"))
     set_trading_loop = int(os.getenv("SET_TRADING_LOOP"))
     set_timeout = int(os.getenv("SET_TIMEOUT"))
@@ -61,7 +62,7 @@ def main():
             time.sleep(get_random_time())
 
             player_search_button_x = 970
-            player_search_button_y = 480
+            player_search_button_y = 490
 
             pyautogui.click(player_search_button_x, player_search_button_y)
 
@@ -69,7 +70,7 @@ def main():
                 time.sleep(get_random_time())
 
                 select_quality_button_x = 880
-                select_quality_button_y = 450
+                select_quality_button_y = 460
 
                 pyautogui.click(select_quality_button_x, select_quality_button_y)
 
@@ -94,19 +95,51 @@ def main():
 
                 pyautogui.click(select_rare_rarity_button_x, select_rare_rarity_button_y)
 
+            if fantasy_hero == "yes":
+                time.sleep(get_random_time())
+
+                select_quality_button_x = 880
+                select_quality_button_y = 460
+
+                pyautogui.click(select_quality_button_x, select_quality_button_y)
+
+                time.sleep(get_random_time())
+
+                select_fantasy_hero_button_x = 880
+                select_fantasy_hero_button_y = 680
+
+                pyautogui.click(select_fantasy_hero_button_x, select_fantasy_hero_button_y)
+
+                time.sleep(get_random_time())
+
+                rarity_button_x = 1080
+                rarity_button_y = 460
+
+                pyautogui.click(rarity_button_x, rarity_button_y)
+
+                # click for scroll
+                pyautogui.click(1500, 600)
+
+                time.sleep(get_random_time())
+
+                select_rare_rarity_button_x = 1080
+                select_rare_rarity_button_y = 700
+
+                pyautogui.click(select_rare_rarity_button_x, select_rare_rarity_button_y)
+
             time.sleep(get_random_time())
 
             minus_button_x = 500
-            minus_button_y = 770
+            minus_button_y = 790
 
             plus_button_x = 950
-            plus_button_y = 770
+            plus_button_y = 790
 
             go_back_button_x = 140
-            go_back_button_y = 180
+            go_back_button_y = 210
 
             min_bid_price_button_x = 580
-            min_bid_price_button_y = 770
+            min_bid_price_button_y = 790
 
             pyautogui.click(min_bid_price_button_x, min_bid_price_button_y)
             pyautogui.typewrite("150")
@@ -114,7 +147,7 @@ def main():
             time.sleep(get_random_time())
 
             max_buy_now_price_button_x = 1140
-            max_buy_now_price_button_y = 880
+            max_buy_now_price_button_y = 895
 
             pyautogui.click(max_buy_now_price_button_x, max_buy_now_price_button_y)
             pyautogui.typewrite(max_buy_now_price)
@@ -148,24 +181,23 @@ def main():
                     pyautogui.click(buy_item_button_x, buy_item_button_y)
 
                     get_item_button_x = 970
-                    get_item_button_y = 600
+                    get_item_button_y = 620
                     pyautogui.click(get_item_button_x, get_item_button_y)
 
                     now = datetime.now()
+                    now_string = now.strftime("%d_%m_%Y_%H_%M_%S")
 
-                    print(f"player found at: {now}; and tried to buy the player:", player_name)
-                    
                     if not os.path.exists(f"assets/{player_name}"):
                         os.makedirs(f"assets/{player_name}")
 
-                    time.sleep(get_random_time())
+                    time.sleep(2)
 
                     check_player = pyautogui.screenshot()
 
-                    now_string = now.strftime("%d_%m_%Y_%H_%M_%S")
-
                     player_image = f"{player_name}/{now_string}.png"
                     check_player.save(f"assets/{player_image}")
+
+                    print(f"player found at: {now}; and tried to buy the player:", player_name)
                 
                 time.sleep(get_random_time())
 
