@@ -18,13 +18,21 @@ def main():
     fcul = "FC Ultimate Team Web App"
     browser = gw.getWindowsWithTitle(fcul)[0]
 
-    player_name = os.getenv("PLAYER_NAME")
-    gold_rare= os.getenv("GOLD_RARE")
-    fantasy_hero = os.getenv("FANTASY_HERO")
-    set_program_loop = int(os.getenv("SET_PROGRAM_LOOP"))
-    set_trading_loop = int(os.getenv("SET_TRADING_LOOP"))
-    set_timeout = int(os.getenv("SET_TIMEOUT"))
-    max_buy_now_price = os.getenv("MAX_BUY_NOW_PRICE")
+    # player_name = os.getenv("PLAYER_NAME")
+    # gold_rare= os.getenv("GOLD_RARE")
+    # fantasy_hero = os.getenv("FANTASY_HERO")
+    # set_program_loop = int(os.getenv("SET_PROGRAM_LOOP"))
+    # set_trading_loop = int(os.getenv("SET_TRADING_LOOP"))
+    # set_timeout = int(os.getenv("SET_TIMEOUT"))
+    # max_buy_now_price = os.getenv("MAX_BUY_NOW_PRICE")
+
+    player_name = "voller"
+    gold_rare= "no"
+    fantasy_hero = "yes"
+    set_program_loop = 100
+    set_trading_loop = 10000
+    set_timeout = 100
+    max_buy_now_price = "150000"
 
     print("player name:", player_name)
     print("gold rare:", gold_rare)
@@ -43,6 +51,8 @@ def main():
         while True:
             if counter == set_program_loop:
                 break
+
+            print(f"snipe started: {datetime.now()}")
 
             time.sleep(get_random_time())
 
@@ -246,6 +256,8 @@ def main():
             counter += 1
 
             time.sleep(set_timeout)
+
+        print(f"snipe ended: {datetime.now()}")
 
         browser.minimize()
 
